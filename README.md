@@ -1,4 +1,4 @@
-# ProyectoPS2
+# Sabor Digital
 
 Proyecto de desarrollo Web - Ingenieida de Software
 
