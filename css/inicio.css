@@ -51,9 +51,12 @@
 }
 
 .product img {
-    width: 50%;
+
     margin-top: 10px;
     border-radius: 5px;
+    width: 200px; /* Establece el ancho fijo */
+    height: 150px; /* Establece la altura fija */
+    object-fit: cover;
 }
 
 .product h3 {
