@@ -11,10 +11,8 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Verificar conexión
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
-}
-else"conexion exitosa"{
-    $conn->close();
-
+} else {
+    echo "Conexión exitosa.";
 }
 
 // Obtener datos del formulario
@@ -26,7 +24,7 @@ $categoria = $_POST['categoria'];
 $imagen = $_FILES['imagen'];
 
 // Ruta de almacenamiento de imágenes
-$ruta_almacenamiento = '../img_productos/'; // Ajusta según tu estructura de directorios
+$ruta_almacenamiento = __DIR__ . '/../img_productos/'; // Ajusta según tu estructura de directorios
 $nombre_imagen = basename($imagen['name']);
 $ruta_imagen = $ruta_almacenamiento . $nombre_imagen;
 
@@ -61,4 +59,7 @@ if (move_uploaded_file($imagen['tmp_name'], $ruta_imagen)) {
 }
 
 $conn->close();
+
+header("Refresh: 2; URL=/SaborDigital-WEB/html/addproductos.html");
+echo "Serás redirigido en 2 segundos...";
 ?>
