@@ -6,15 +6,55 @@
     <link rel="stylesheet" href="../css/styles.css">
     <title>SaborDigital</title>
     <link rel="icon" type="image/x-icon" href="../img/LOGOOO_1.ico">
+    <script>
+        function cargarProductos() {
+            fetch('../Php/listar_producto.php')
+                .then(response => response.json())
+                .then(data => {
+                    let tableBody = document.querySelector("#productTable tbody");
+                    tableBody.innerHTML = '';
+
+                    data.forEach(producto => {
+                        let row = document.createElement("tr");
+
+                        let nombre = document.createElement("td");
+                        nombre.textContent = producto.P_nombre;
+                        row.appendChild(nombre);
+
+                        let descripcion = document.createElement("td");
+                        descripcion.textContent = producto.P_descripcion;
+                        row.appendChild(descripcion);
+
+                        let precio = document.createElement("td");
+                        precio.textContent = producto.P_precio;
+                        row.appendChild(precio);
+
+                        let stock = document.createElement("td");
+                        stock.textContent = producto.P_stock;
+                        row.appendChild(stock);
+
+                        let categoria = document.createElement("td");
+                        categoria.textContent = producto.id_categoria;
+                        row.appendChild(categoria);
+
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        }
+        
+        // Llamar a cargarProductos() cuando la página se cargue
+        window.onload = cargarProductos;
+    </script>
 </head>
 <body>
     <header>
         <div class="logo">
             <a class="logo-link" href="../index.html">
-                <img src="../img/logoSD.svg" alt="Logo" >
+                <img src="../img/logoSD.svg" alt="Logo">
             </a>
         </div>
-        <h1>SABOR DIGITAL</h1>
+        <h1 class="header-SD">SABOR DIGITAL</h1>
         <nav>
             <ul>
                 <li><a href="../index.html">Inicio</a></li>
@@ -22,33 +62,32 @@
                 <li><a href="loteproduc.html">Lote de productos</a></li>
                 <li class="dropdown">
                     <a href="#">Modo</a>
-                      <div class="dropdown-content">
-                           <a href="../index.html">Cliente</a>
-                           <a href="administrador.html">Administrador</a>
-                      </div>
-                  </li>
+                    <div class="dropdown-content">
+                        <a href="../index.html">Cliente</a>
+                        <a href="administrador.html">Administrador</a>
+                    </div>
+                </li>
                 <li><a href="ventas.html">Ventas</a></li>
-                
             </ul>
         </nav>
     </header>
-        <link rel="stylesheet" href="../css/productos.css">
+    <link rel="stylesheet" href="../css/productos.css">
 
     <main>
-      <h2>Lista de Productos</h2>
+        <h2>Lista de Productos</h2>
         <table id="productTable">
             <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Descripción</th>
-                        <th>Cantidad</th>
-                        <th>Fecha de Ingreso</th>
-                        <th>Valor</th>
-                    </tr>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Categoria</th>
+                </tr>
             </thead>
-                <tbody>
-                    <!-- Aquí se añadirán los productos -->
-                </tbody>
+            <tbody>
+                <!-- Aquí se añadirán los productos -->
+            </tbody>
         </table>
     </main>
     <footer>
@@ -56,6 +95,5 @@
             <p>&copy; 2024 Tienda Online. Todos los derechos reservados.</p>
         </div>
     </footer>
-    
 </body>
 </html>
