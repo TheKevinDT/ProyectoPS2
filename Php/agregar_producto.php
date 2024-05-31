@@ -24,7 +24,7 @@ $categoria = $_POST['categoria'];
 $imagen = $_FILES['imagen'];
 
 // Ruta de almacenamiento de imágenes
-$ruta_almacenamiento = __DIR__ . '/../img_productos/'; // Ajusta según tu estructura de directorios
+$ruta_almacenamiento = __DIR__ . '/../img_productos/'; 
 $nombre_imagen = basename($imagen['name']);
 $ruta_imagen = $ruta_almacenamiento . $nombre_imagen;
 

@@ -1,4 +1,4 @@
-/* Estilos para la sección hero */
+/*-----Estilos para la sección hero---- */
 .hero {
     background-color: #f4f4f4;
     text-align: center;
@@ -31,7 +31,7 @@
     background-color: #0056b3;
 }
 
-/* Estilos para la sección de productos */
+/*-----Estilos para la sección de productos------*/
 .products {
     display: flex;
     flex-wrap: wrap;
@@ -54,8 +54,8 @@
 
     margin-top: 10px;
     border-radius: 5px;
-    width: 200px; /* Establece el ancho fijo */
-    height: 150px; /* Establece la altura fija */
+    width: 200px; 
+    height: 150px; 
     object-fit: cover;
 }
 

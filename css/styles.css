@@ -168,7 +168,7 @@ a {
   }
 
   .logo-link {
-    /* Anula los estilos generales para el enlace del logo */
+    
     display: inline; 
     position: static; 
     top: auto; 
@@ -186,20 +186,20 @@ a {
   }
   
   .logo-link:hover {
-    /* Anula los estilos de hover generales para el enlace del logo */
+    
     top: auto; 
     transform: none; 
   }
   
   .logo-link::before,
   .logo-link::after {
-    /* Anula los pseudo-elementos antes y después para el enlace del logo */
+    
     display: none; 
   }
   
   .logo-link:hover:before,
   .logo-link:hover:after {
-    /* Anula los estilos de hover de los pseudo-elementos para el enlace del logo */
+    
     opacity: 0; 
     bottom: auto; 
     transform: none; 
